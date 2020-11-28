@@ -1,0 +1,31 @@
+VAGRANTFILE_MIN_VERSION = ">= 2.2.10"
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.require_version VAGRANTFILE_MIN_VERSION
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.define "qmk_firmware"
+  config.vm.box = "generic/debian9"
+
+  config.vm.synced_folder ".", "/vagrant"
+  config.vm.provision "shell", inline: "ln -sfn /vagrant/mechie-workman /vagrant/qmk_firmware/keyboards/preonic/keymaps/mechie-workman"
+
+  config.vm.provider "docker" do |docker, override|
+    override.vm.box = nil
+    docker.build_dir = "util/vagrant"
+    docker.has_ssh = true
+  end
+
+  ["virtualbox", "vmware_workstation", "vmware_fusion"].each do |type|
+    config.vm.provider type do |virt, override|
+      virt.gui = false
+      virt.memory = "512"
+      override.vm.provision "docker" do |d|
+        d.run "qmkfm/base_container",
+          cmd: "tail -f /dev/null",
+          args: "--privileged -v /dev:/dev -v '/vagrant:/vagrant'"
+      end
+      override.vm.provision "shell", inline: "echo 'docker restart qmkfm-base_container && exec docker exec -it qmkfm-base_container /bin/bash -l' >> ~vagrant/.bashrc"
+    end
+  end
+end
