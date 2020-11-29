@@ -2,6 +2,10 @@
 
 #define DAC_SAMPLE_MAX 1023U
 
+// Slow down tempo while waiting on a beter fix, see e.g. https://github.com/qmk/qmk_firmware/issues/8825
+#undef TEMPO_DEFAULT
+#define TEMPO_DEFAULT 255
+
 #ifdef AUDIO_ENABLE
   #define STARTUP_SONG SONG(ZELDA_CHEST)
 #endif
