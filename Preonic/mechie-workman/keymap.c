@@ -97,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |xxxxxx|xxxxxx|   {  |   }  | Caps |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |WhlDwn| WhlUp| Home |  End | Calc |
+ * |      |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |WhlDwn| WhlUp|  End | Home | Calc |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |  Backspace  |Adjust| Mute | Vol- | Vol+ | Play |
  * `-----------------------------------------------------------------------------------'
@@ -106,7 +106,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_PLUS, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_UNDS,
   KC_PLUS, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_UNDS,
   _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   XXXXXXX, XXXXXXX, KC_LCBR, KC_RCBR, KC_CAPS,
-  _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_WH_D, KC_WH_U, KC_HOME, KC_END,  KC_CALC,
+  _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_WH_D, KC_WH_U, KC_END,  KC_HOME, KC_CALC,
   _______, _______, _______, _______, _______,      KC_BSPC,     ADJUST,  KC_MUTE, KC_VOLD, KC_VOLU, KC_MPLY
 ),
 
@@ -118,7 +118,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |\/\/\/|\/\/\/|   [  |   ]  | Caps |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |WhlDwn| WhlUp| PgUp | PgDwn| Calc |
+ * |      |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |WhlDwn| WhlUp| PgDwn| PgUp | Calc |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |Adjust|    Enter    |      | Next | Vol- | Vol+ | Play |
  * `-----------------------------------------------------------------------------------'
@@ -127,7 +127,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_EQL,  KC_1,    KC_2,    KC_3,    KC_4,   KC_5,   KC_6,   KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
   KC_EQL,  KC_1,    KC_2,    KC_3,    KC_4,   KC_5,   KC_6,   KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
   _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,  KC_F5,  KC_F6,  XXXXXXX, XXXXXXX, KC_LBRC, KC_RBRC, KC_BSLS,
-  _______, KC_F7,   KC_F8,   KC_F9,   KC_F10, KC_F11, KC_F12, KC_WH_D, KC_WH_U, KC_PGUP, KC_PGDN, KC_CALC,
+  _______, KC_F7,   KC_F8,   KC_F9,   KC_F10, KC_F11, KC_F12, KC_WH_D, KC_WH_U, KC_PGDN, KC_PGUP, KC_CALC,
   _______, _______, _______, _______, ADJUST,     KC_ENT,     _______, KC_MUTE, KC_VOLD, KC_VOLU, KC_MPLY
 ),
 
