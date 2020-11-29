@@ -9,7 +9,8 @@ enum preonic_layers {
   _ADJUST,
   _MISC,
   _GRAVE,
-  _ACUTE
+  _ACUTE,
+  _DIAERESIS,
 };
 
 enum custom_keycodes {
@@ -25,8 +26,13 @@ enum custom_keycodes {
   C_ACI,
   C_ACO,
   C_ACU,
+  C_DIA,
+  C_DIE,
+  C_DII,
+  C_DIO,
+  C_DIU,
   ALT_FIRST = C_CTR,
-  ALT_LAST = C_ACU
+  ALT_LAST = C_DIU,
 };
 
 #define WORKMAN DF(_WORKMAN)
@@ -37,6 +43,7 @@ enum custom_keycodes {
 #define MISC_GR LT(_MISC, KC_GRV)
 #define GRAV_BS LT(_GRAVE, KC_BSLS)
 #define ACUT_QT LT(_ACUTE, KC_QUOT)
+#define UMLAUT MO(_DIAERESIS)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -172,7 +179,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|   Ù  |\/\/\/|\/\/\/|      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |\/\/\/|   À  |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|   È  |   Ò  |   Ì  |\/\/\/|
+ * |\/\/\/|   À  |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|   È  |   Ò  |   Ì  |Umlaut|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |\/\/\/|\/\/\/|\/\/\/|\/\/\/|   Ç  |\/\/\/|\/\/\/|  L·L |\/\/\/|\/\/\/|\/\/\/|\/\/\/|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -182,7 +189,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_GRAVE] = LAYOUT_preonic_1x2uC(
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_GRU,   XXXXXXX, XXXXXXX, _______,
-  XXXXXXX, C_GRA,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_GRE,   C_GRO,   C_GRI,   XXXXXXX,
+  XXXXXXX, C_GRA,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_GRE,   C_GRO,   C_GRI,   UMLAUT,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_CTR,   XXXXXXX, XXXXXXX, C_LPL,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
 ),
@@ -191,7 +198,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|   Ú  |\/\/\/|\/\/\/|\/\/\/|
+ * |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|   Ú  |\/\/\/|\/\/\/|Umlaut|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |\/\/\/|   Á  |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|   É  |   Ó  |   Í  |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -202,11 +209,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_ACUTE] = LAYOUT_preonic_1x2uC(
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_ACU,   XXXXXXX, XXXXXXX, XXXXXXX,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_ACU,   XXXXXXX, XXXXXXX, UMLAUT,
   XXXXXXX, C_ACA,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_ACE,   C_ACO,   C_ACI,   _______,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_CTR,   XXXXXXX, XXXXXXX, C_LPL,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
-)
+),
+
+/* Diaeresis (¨) via Win Alt Codes
+ * ,-----------------------------------------------------------------------------------.
+ * |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|   Ü  |\/\/\/|\/\/\/|      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |\/\/\/|   Ä  |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|   Ë  |   Ö  |   Ï  |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |\/\/\/|\/\/\/|\/\/\/|\/\/\/|   Ç  |\/\/\/|\/\/\/|  L·L |\/\/\/|\/\/\/|\/\/\/|\/\/\/|
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/\/\/\/\|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|
+ * `-----------------------------------------------------------------------------------'
+ */
+[_DIAERESIS] = LAYOUT_preonic_1x2uC(
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_DIU,   XXXXXXX, XXXXXXX, _______,
+  XXXXXXX, C_DIA,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_DIE,   C_DIO,   C_DII,   _______,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_CTR,   XXXXXXX, XXXXXXX, C_LPL,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+),
 
 };
 
@@ -260,6 +288,26 @@ char *alt_codes[][2] = {
   {
     ALT_0XYZ_CODE(2, 5, 0), // ú
     ALT_0XYZ_CODE(2, 1, 8) // Ú
+  },
+  {
+    ALT_0XYZ_CODE(2, 2, 8), // ä
+    ALT_0XYZ_CODE(1, 9, 6) // Ä
+  },
+  {
+    ALT_0XYZ_CODE(2, 3, 5), // ë
+    ALT_0XYZ_CODE(2, 0, 3) // Ë
+  },
+  {
+    ALT_0XYZ_CODE(2, 3, 9), // ï
+    ALT_0XYZ_CODE(2, 0, 7) // Ï
+  },
+  {
+    ALT_0XYZ_CODE(2, 4, 6), // ö
+    ALT_0XYZ_CODE(2, 1, 4) // Ö
+  },
+  {
+    ALT_0XYZ_CODE(2, 5, 2), // ü
+    ALT_0XYZ_CODE(2, 2, 0) // Ü
   },
 };
 
