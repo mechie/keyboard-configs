@@ -14,7 +14,9 @@ enum preonic_layers {
 };
 
 enum custom_keycodes {
-  C_CTR = SAFE_RANGE,
+  C_MISC_GR = SAFE_RANGE,
+  C_MISC_LCK,
+  C_CTR,
   C_LPL,
   C_GRA,
   C_GRE,
@@ -40,7 +42,6 @@ enum custom_keycodes {
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 #define ADJUST MO(_ADJUST)
-#define MISC_GR LT(_MISC, KC_GRV)
 #define GRAV_BS LT(_GRAVE, KC_BSLS)
 #define ACUT_QT LT(_ACUTE, KC_QUOT)
 #define UMLAUT MO(_DIAERESIS)
@@ -64,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_EQL,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
   KC_LGUI, KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,    KC_J,    KC_F,    KC_U,    KC_P,    KC_SCLN, GRAV_BS,
   KC_TAB,  KC_A,    KC_S,    KC_H,    KC_T,    KC_G,    KC_Y,    KC_N,    KC_E,    KC_O,    KC_I,    ACUT_QT,
-  KC_LSFT, KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,    KC_K,    KC_L,    KC_COMM, KC_DOT,  KC_SLSH, MISC_GR,
+  KC_LSFT, KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,    KC_K,    KC_L,    KC_COMM, KC_DOT,  KC_SLSH, C_MISC_GR,
   KC_ESC,  KC_DEL,  KC_LCTL, KC_LALT, LOWER,       KC_SPC,       RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
@@ -85,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_EQL,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
   KC_LGUI, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
   KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-  KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, MISC_GR,
+  KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, C_MISC_GR,
   KC_ESC,  KC_DEL,  KC_LCTL, KC_LALT, LOWER,       KC_SPC,       RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
@@ -162,7 +163,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|  N_1 |  N_2 |  N_3 | N_Ent|      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |             |      |  N_0 |  N_. | N_Ent|\/\/\/|
+ * |      |      |      |      |      |             |      |  N_0 |  N_. | N_Ent|MiscLk|
  * `-----------------------------------------------------------------------------------'
  */
 [_MISC] = LAYOUT_preonic_1x2uC(
@@ -170,7 +171,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, XXXXXXX, KC_MS_U, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_P7,   KC_P8,   KC_P9,   KC_PPLS, KC_BTN3,
   _______, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX, XXXXXXX, XXXXXXX, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, KC_BTN1,
   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_P1,   KC_P2,   KC_P3,   KC_PENT, _______,
-  _______, _______, _______, _______, _______,      _______,     _______, KC_P0,   KC_PDOT, KC_PENT, XXXXXXX
+  _______, _______, _______, _______, _______,      _______,     _______, KC_P0,   KC_PDOT, KC_PENT, C_MISC_LCK
 ),
 
 /* Grave (`) via Win Alt Codes
@@ -311,8 +312,44 @@ char *alt_codes[][2] = {
   },
 };
 
+#define MISC_GR_TIMER_THRESHOLD 250U
+static uint16_t misc_gr_timer_latch;
+static uint16_t misc_gr_timer_repeat = MISC_GR_TIMER_THRESHOLD + 1U;
+bool misc_gr_is_locked = false;
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
+    case C_MISC_GR: {
+      if (record->event.pressed) {
+        if (timer_elapsed(misc_gr_timer_repeat) < MISC_GR_TIMER_THRESHOLD) {
+          register_code(KC_GRAVE);
+        } else {
+          layer_on(_MISC);
+          if (!misc_gr_is_locked) {
+            misc_gr_timer_latch = timer_read();
+          }
+        }
+      } else {
+        if (!misc_gr_is_locked) {
+          layer_off(_MISC);
+          if (timer_elapsed(misc_gr_timer_latch) < MISC_GR_TIMER_THRESHOLD) {
+            register_code(KC_GRAVE);
+          }
+        }
+        unregister_code(KC_GRAVE);
+        misc_gr_timer_repeat = timer_read();
+      }
+      return false;
+    }
+    case C_MISC_LCK: {
+      if (record->event.pressed) {
+        misc_gr_is_locked = !misc_gr_is_locked;
+        if (!misc_gr_is_locked) {
+          layer_off(_MISC);
+        }
+      }
+      return false;
+    }
     case ALT_FIRST ... ALT_LAST: {
       if (!record->event.pressed) {
         return false;
