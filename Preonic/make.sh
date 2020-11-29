@@ -9,4 +9,4 @@ output_name="$(echo $2 | tr /: _)"
 
 cd "$source_folder" &&
   make "$2" &&
-  mv -fv "./$output_name.bin" "$target_folder/$output_name.$(date +"%Y%m%d%H%M%S").bin"
+  mv -fv "./$output_name.bin" "$target_folder/bin/$output_name.$(date +"%Y%m%d%H%M%S").bin"

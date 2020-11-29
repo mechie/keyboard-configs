@@ -1,8 +1,8 @@
 .vagrant/
 
 Preonic/qmk_firmware
-Preonic/**qmk_toolbox**
-Preonic/*/**.bin
+Preonic/*qmk_toolbox*
+Preonic/**/*.bin
 
-QFR/**.hex
-QFR/**easykeymap**
+QFR/**/*.hex
+QFR/*easykeymap*
