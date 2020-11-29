@@ -243,71 +243,71 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 char *alt_codes[][2] = {
   {
     ALT_0XYZ_CODE(2, 3, 1), // ç
-    ALT_0XYZ_CODE(1, 9, 9) // Ç
+    ALT_0XYZ_CODE(1, 9, 9), // Ç
   },
   {
     SS_TAP(X_L)ALT_0XYZ_CODE(1, 8, 3)SS_TAP(X_L), // l·l
-    SS_LSFT(SS_TAP(X_L))ALT_0XYZ_CODE(1, 8, 3)SS_LSFT(SS_TAP(X_L)) // L·L
+    SS_LSFT(SS_TAP(X_L))ALT_0XYZ_CODE(1, 8, 3)SS_LSFT(SS_TAP(X_L)), // L·L
   },
   {
     ALT_0XYZ_CODE(2, 2, 4), // à
-    ALT_0XYZ_CODE(1, 9, 2) // À
+    ALT_0XYZ_CODE(1, 9, 2), // À
   },
   {
     ALT_0XYZ_CODE(2, 3, 2), // è
-    ALT_0XYZ_CODE(2, 0, 0) // È
+    ALT_0XYZ_CODE(2, 0, 0), // È
   },
   {
     ALT_0XYZ_CODE(2, 3, 6), // ì
-    ALT_0XYZ_CODE(2, 0, 4) // Ì
+    ALT_0XYZ_CODE(2, 0, 4), // Ì
   },
   {
     ALT_0XYZ_CODE(2, 4, 2), // ò
-    ALT_0XYZ_CODE(2, 1, 0) // Ò
+    ALT_0XYZ_CODE(2, 1, 0), // Ò
   },
   {
     ALT_0XYZ_CODE(2, 4, 9), // ù
-    ALT_0XYZ_CODE(2, 1, 7) // Ù
+    ALT_0XYZ_CODE(2, 1, 7), // Ù
   },
   {
     ALT_0XYZ_CODE(2, 2, 5), // á
-    ALT_0XYZ_CODE(1, 9, 3) // Á
+    ALT_0XYZ_CODE(1, 9, 3), // Á
   },
   {
     ALT_0XYZ_CODE(2, 3, 3), // é
-    ALT_0XYZ_CODE(2, 0, 1) // É
+    ALT_0XYZ_CODE(2, 0, 1), // É
   },
   {
     ALT_0XYZ_CODE(2, 3, 7), // í
-    ALT_0XYZ_CODE(2, 0, 5) // Í
+    ALT_0XYZ_CODE(2, 0, 5), // Í
   },
   {
     ALT_0XYZ_CODE(2, 4, 3), // ó
-    ALT_0XYZ_CODE(2, 1, 1) // Ó
+    ALT_0XYZ_CODE(2, 1, 1), // Ó
   },
   {
     ALT_0XYZ_CODE(2, 5, 0), // ú
-    ALT_0XYZ_CODE(2, 1, 8) // Ú
+    ALT_0XYZ_CODE(2, 1, 8), // Ú
   },
   {
     ALT_0XYZ_CODE(2, 2, 8), // ä
-    ALT_0XYZ_CODE(1, 9, 6) // Ä
+    ALT_0XYZ_CODE(1, 9, 6), // Ä
   },
   {
     ALT_0XYZ_CODE(2, 3, 5), // ë
-    ALT_0XYZ_CODE(2, 0, 3) // Ë
+    ALT_0XYZ_CODE(2, 0, 3), // Ë
   },
   {
     ALT_0XYZ_CODE(2, 3, 9), // ï
-    ALT_0XYZ_CODE(2, 0, 7) // Ï
+    ALT_0XYZ_CODE(2, 0, 7), // Ï
   },
   {
     ALT_0XYZ_CODE(2, 4, 6), // ö
-    ALT_0XYZ_CODE(2, 1, 4) // Ö
+    ALT_0XYZ_CODE(2, 1, 4), // Ö
   },
   {
     ALT_0XYZ_CODE(2, 5, 2), // ü
-    ALT_0XYZ_CODE(2, 2, 0) // Ü
+    ALT_0XYZ_CODE(2, 2, 0), // Ü
   },
 };
 

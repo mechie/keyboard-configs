@@ -1,5 +1,6 @@
 #pragma once
 
+// Loudness, must be ((2^N)-1)U, default (and maximum) is N=16 for uint16_t
 #define DAC_SAMPLE_MAX 1023U
 
 // Slow down tempo while waiting on a beter fix, see e.g. https://github.com/qmk/qmk_firmware/issues/8825
@@ -11,7 +12,6 @@
 #endif
 
 #define MUSIC_MASK (keycode != KC_NO)
-
 #define MIDI_BASIC
 
 #define MOUSEKEY_DELAY 250
