@@ -181,7 +181,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |\/\/\/|   À  |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|   È  |   Ò  |   Ì  |Umlaut|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |\/\/\/|\/\/\/|\/\/\/|\/\/\/|   Ç  |\/\/\/|\/\/\/|  L·L |\/\/\/|\/\/\/|\/\/\/|\/\/\/|
+ * |      |\/\/\/|\/\/\/|\/\/\/|   Ç  |\/\/\/|\/\/\/|  L·L |\/\/\/|\/\/\/|\/\/\/|\/\/\/|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/\/\/\/\|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|
  * `-----------------------------------------------------------------------------------'
@@ -190,7 +190,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_GRU,   XXXXXXX, XXXXXXX, _______,
   XXXXXXX, C_GRA,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_GRE,   C_GRO,   C_GRI,   UMLAUT,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_CTR,   XXXXXXX, XXXXXXX, C_LPL,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  _______, XXXXXXX, XXXXXXX, XXXXXXX, C_CTR,   XXXXXXX, XXXXXXX, C_LPL,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
 ),
 
@@ -202,7 +202,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |\/\/\/|   Á  |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|   É  |   Ó  |   Í  |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |\/\/\/|\/\/\/|\/\/\/|\/\/\/|   Ç  |\/\/\/|\/\/\/|  L·L |\/\/\/|\/\/\/|\/\/\/|\/\/\/|
+ * |      |\/\/\/|\/\/\/|\/\/\/|   Ç  |\/\/\/|\/\/\/|  L·L |\/\/\/|\/\/\/|\/\/\/|\/\/\/|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/\/\/\/\|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|
  * `-----------------------------------------------------------------------------------'
@@ -211,7 +211,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_ACU,   XXXXXXX, XXXXXXX, UMLAUT,
   XXXXXXX, C_ACA,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_ACE,   C_ACO,   C_ACI,   _______,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_CTR,   XXXXXXX, XXXXXXX, C_LPL,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  _______, XXXXXXX, XXXXXXX, XXXXXXX, C_CTR,   XXXXXXX, XXXXXXX, C_LPL,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
 ),
 
@@ -223,7 +223,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |\/\/\/|   Ä  |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|   Ë  |   Ö  |   Ï  |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |\/\/\/|\/\/\/|\/\/\/|\/\/\/|   Ç  |\/\/\/|\/\/\/|  L·L |\/\/\/|\/\/\/|\/\/\/|\/\/\/|
+ * |      |\/\/\/|\/\/\/|\/\/\/|   Ç  |\/\/\/|\/\/\/|  L·L |\/\/\/|\/\/\/|\/\/\/|\/\/\/|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/\/\/\/\|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|
  * `-----------------------------------------------------------------------------------'
@@ -232,7 +232,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_DIU,   XXXXXXX, XXXXXXX, _______,
   XXXXXXX, C_DIA,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_DIE,   C_DIO,   C_DII,   _______,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_CTR,   XXXXXXX, XXXXXXX, C_LPL,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  _______, XXXXXXX, XXXXXXX, XXXXXXX, C_CTR,   XXXXXXX, XXXXXXX, C_LPL,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
 ),
 
