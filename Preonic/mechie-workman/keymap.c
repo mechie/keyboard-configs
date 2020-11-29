@@ -135,21 +135,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      | Reset| Debug|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|RGBBrD|RGBBrU|RGBPla|
+ * |      | Reset| Debug|MidiOn|MidOff|\/\/\/|\/\/\/|Workmn|Qwerty|RGBBrD|RGBBrU|RGBPla|
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |TgNKRO|MusMod| AudOn|AudOff|\/\/\/|\/\/\/|Workmn|Qwerty|Sat Dw|Sat Up|RGBMod|
+ * |      |TgNKRO|MusMod| AudOn|AudOff|\/\/\/|\/\/\/|Bri Dw|Bri Up|Sat Dw|Sat Up|RGBMod|
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |Voice-|Voice+| MusOn|MusOff|MidiOn|MidOff|EfSpDw|EfSpUp|Hue Dw|Hue Up| TgRGB|
+ * |      |Voice-|Voice+| MusOn|MusOff|\/\/\/|\/\/\/|EfSpDw|EfSpUp|Hue Dw|Hue Up| TgRGB|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |             |      | Prev |Bri Dw|Bri Up| Next |
+ * |      |      |      |      |      |             |      |\/\/\/| Prev | Next | Menu |
  * `-----------------------------------------------------------------------------------'
  */
 [_ADJUST] = LAYOUT_preonic_1x2uC(
   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
-  _______, RESET,   DEBUG,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RGB_VAD, RGB_VAI, RGB_M_P,
-  _______, NK_TOGG, MU_MOD,  AU_ON,   AU_OFF,  XXXXXXX, XXXXXXX, WORKMAN, QWERTY,  RGB_SAD, RGB_SAI, RGB_MOD,
-  _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  RGB_SPD, RGB_SPI, RGB_HUD, RGB_HUI, RGB_TOG,
-  _______, _______, _______, _______, _______,      _______,     _______, KC_MPRV, KC_BRID, KC_BRIU, KC_MNXT
+  _______, RESET,   DEBUG,   MI_ON,   MI_OFF,  XXXXXXX, XXXXXXX, WORKMAN, QWERTY,  RGB_VAD, RGB_VAI, RGB_M_P,
+  _______, NK_TOGG, MU_MOD,  AU_ON,   AU_OFF,  XXXXXXX, XXXXXXX, KC_BRID, KC_BRIU, RGB_SAD, RGB_SAI, RGB_MOD,
+  _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  XXXXXXX, XXXXXXX, RGB_SPD, RGB_SPI, RGB_HUD, RGB_HUI, RGB_TOG,
+  _______, _______, _______, _______, _______,      _______,     _______, XXXXXXX, KC_MPRV, KC_MNXT, KC_APP
 ),
 
 /* Misc
@@ -162,7 +162,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|  N_1 |  N_2 |  N_3 | N_Ent|      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |             |      |  N_0 |  N_. | N_Ent| Menu |
+ * |      |      |      |      |      |             |      |  N_0 |  N_. | N_Ent|\/\/\/|
  * `-----------------------------------------------------------------------------------'
  */
 [_MISC] = LAYOUT_preonic_1x2uC(
@@ -170,7 +170,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, XXXXXXX, KC_MS_U, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_P7,   KC_P8,   KC_P9,   KC_PPLS, KC_BTN3,
   _______, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX, XXXXXXX, XXXXXXX, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, KC_BTN1,
   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_P1,   KC_P2,   KC_P3,   KC_PENT, _______,
-  _______, _______, _______, _______, _______,      _______,     _______, KC_P0,   KC_PDOT, KC_PENT, KC_APP
+  _______, _______, _______, _______, _______,      _______,     _______, KC_P0,   KC_PDOT, KC_PENT, XXXXXXX
 ),
 
 /* Grave (`) via Win Alt Codes
