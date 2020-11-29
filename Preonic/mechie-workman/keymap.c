@@ -7,7 +7,26 @@ enum preonic_layers {
   _LOWER,
   _RAISE,
   _ADJUST,
-  _MISC
+  _MISC,
+  _GRAVE,
+  _ACUTE
+};
+
+enum custom_keycodes {
+  C_CTR = SAFE_RANGE,
+  C_LPL,
+  C_GRA,
+  C_GRE,
+  C_GRI,
+  C_GRO,
+  C_GRU,
+  C_ACA,
+  C_ACE,
+  C_ACI,
+  C_ACO,
+  C_ACU,
+  ALT_FIRST = C_CTR,
+  ALT_LAST = C_ACU
 };
 
 #define WORKMAN DF(_WORKMAN)
@@ -16,6 +35,8 @@ enum preonic_layers {
 #define RAISE MO(_RAISE)
 #define ADJUST MO(_ADJUST)
 #define MISC_GR LT(_MISC, KC_GRV)
+#define GRAV_BS LT(_GRAVE, KC_BSLS)
+#define ACUT_QT LT(_ACUTE, KC_QUOT)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -23,9 +44,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |   =  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  |   -  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | GUI  |   Q  |   D  |   R  |   W  |   B  |   J  |   F  |   U  |   P  |   ;  |   \  |
+ * | GUI  |   Q  |   D  |   R  |   W  |   B  |   J  |   F  |   U  |   P  |   ;  |Grav~\|
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Tab  |   A  |   S  |   H  |   T  |   G  |   Y  |   N  |   E  |   O  |   I  |   '  |
+ * | Tab  |   A  |   S  |   H  |   T  |   G  |   Y  |   N  |   E  |   O  |   I  |Acut~'|
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |LShift|   Z  |   X  |   M  |   C  |   V  |   K  |   L  |   ,  |   .  |   /  |Misc~`|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -34,8 +55,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_WORKMAN] = LAYOUT_preonic_1x2uC(
   KC_EQL,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
-  KC_LGUI, KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,    KC_J,    KC_F,    KC_U,    KC_P,    KC_SCLN, KC_BSLS,
-  KC_TAB,  KC_A,    KC_S,    KC_H,    KC_T,    KC_G,    KC_Y,    KC_N,    KC_E,    KC_O,    KC_I,    KC_QUOT,
+  KC_LGUI, KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,    KC_J,    KC_F,    KC_U,    KC_P,    KC_SCLN, GRAV_BS,
+  KC_TAB,  KC_A,    KC_S,    KC_H,    KC_T,    KC_G,    KC_Y,    KC_N,    KC_E,    KC_O,    KC_I,    ACUT_QT,
   KC_LSFT, KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,    KC_K,    KC_L,    KC_COMM, KC_DOT,  KC_SLSH, MISC_GR,
   KC_ESC,  KC_DEL,  KC_LCTL, KC_LALT, LOWER,       KC_SPC,       RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
@@ -143,9 +164,137 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX, XXXXXXX, XXXXXXX, KC_P4,   KC_P5,   KC_P6,   KC_PCMM, KC_BTN1,
   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_P1,   KC_P2,   KC_P3,   KC_PEQL, _______,
   _______, XXXXXXX, _______, _______, _______,      _______,     _______, KC_P0,   KC_PDOT, KC_PENT, KC_MENU
+),
+
+/* Grave (`) via Win Alt Codes
+ * ,-----------------------------------------------------------------------------------.
+ * |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|   Ù  |\/\/\/|\/\/\/|      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |\/\/\/|   À  |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|   È  |   Ò  |   Ì  |\/\/\/|
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |\/\/\/|\/\/\/|\/\/\/|\/\/\/|   Ç  |\/\/\/|\/\/\/|  L·L |\/\/\/|\/\/\/|\/\/\/|\/\/\/|
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/\/\/\/\|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|
+ * `-----------------------------------------------------------------------------------'
+ */
+[_GRAVE] = LAYOUT_preonic_1x2uC(
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_GRU,   XXXXXXX, XXXXXXX, _______,
+  XXXXXXX, C_GRA,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_GRE,   C_GRO,   C_GRI,   XXXXXXX,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_CTR,   XXXXXXX, XXXXXXX, C_LPL,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+),
+
+/* Acute (´) via Win Alt Codes
+ * ,-----------------------------------------------------------------------------------.
+ * |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|   Ú  |\/\/\/|\/\/\/|\/\/\/|
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |\/\/\/|   Á  |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|   É  |   Ó  |   Í  |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |\/\/\/|\/\/\/|\/\/\/|\/\/\/|   Ç  |\/\/\/|\/\/\/|  L·L |\/\/\/|\/\/\/|\/\/\/|\/\/\/|
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/\/\/\/\|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|
+ * `-----------------------------------------------------------------------------------'
+ */
+[_ACUTE] = LAYOUT_preonic_1x2uC(
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_ACU,   XXXXXXX, XXXXXXX, XXXXXXX,
+  XXXXXXX, C_ACA,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_ACE,   C_ACO,   C_ACI,   _______,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_CTR,   XXXXXXX, XXXXXXX, C_LPL,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
 )
 
 };
+
+#define ALT_0XYZ_CODE(x, y, z) SS_LALT(SS_TAP(X_KP_0) SS_TAP(X_KP_ ## x) SS_TAP(X_KP_ ## y) SS_TAP(X_KP_ ## z))
+
+char *alt_codes[][2] = {
+  {
+    ALT_0XYZ_CODE(2, 3, 1), // ç
+    ALT_0XYZ_CODE(1, 9, 9) // Ç
+  },
+  {
+    SS_TAP(X_L)ALT_0XYZ_CODE(1, 8, 3)SS_TAP(X_L), // l·l
+    SS_LSFT(SS_TAP(X_L))ALT_0XYZ_CODE(1, 8, 3)SS_LSFT(SS_TAP(X_L)) // L·L
+  },
+  {
+    ALT_0XYZ_CODE(2, 2, 4), // à
+    ALT_0XYZ_CODE(1, 9, 2) // À
+  },
+  {
+    ALT_0XYZ_CODE(2, 3, 2), // è
+    ALT_0XYZ_CODE(2, 0, 0) // È
+  },
+  {
+    ALT_0XYZ_CODE(2, 3, 6), // ì
+    ALT_0XYZ_CODE(2, 0, 4) // Ì
+  },
+  {
+    ALT_0XYZ_CODE(2, 4, 2), // ò
+    ALT_0XYZ_CODE(2, 1, 0) // Ò
+  },
+  {
+    ALT_0XYZ_CODE(2, 4, 9), // ù
+    ALT_0XYZ_CODE(2, 1, 7) // Ù
+  },
+  {
+    ALT_0XYZ_CODE(2, 2, 5), // á
+    ALT_0XYZ_CODE(1, 9, 3) // Á
+  },
+  {
+    ALT_0XYZ_CODE(2, 3, 3), // é
+    ALT_0XYZ_CODE(2, 0, 1) // É
+  },
+  {
+    ALT_0XYZ_CODE(2, 3, 7), // í
+    ALT_0XYZ_CODE(2, 0, 5) // Í
+  },
+  {
+    ALT_0XYZ_CODE(2, 4, 3), // ó
+    ALT_0XYZ_CODE(2, 1, 1) // Ó
+  },
+  {
+    ALT_0XYZ_CODE(2, 5, 0), // ú
+    ALT_0XYZ_CODE(2, 1, 8) // Ú
+  },
+};
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case ALT_FIRST ... ALT_LAST: {
+      if (!record->event.pressed) {
+        return false;
+      }
+      bool caps = IS_HOST_LED_ON(USB_LED_CAPS_LOCK) ? true : false;
+      uint8_t shift = get_mods() & (MOD_BIT(KC_LSFT) | MOD_BIT(KC_RSFT));
+
+      if (caps) {
+        send_string(SS_TAP(X_CAPSLOCK));
+      }
+      unregister_code(KC_LSFT);
+      unregister_code(KC_RSFT);
+
+      uint16_t index = keycode - C_CTR;
+      send_string(alt_codes[index][caps || shift]);
+
+      if (caps) {
+        send_string(SS_TAP(X_CAPSLOCK));
+      }
+      if (shift & MOD_BIT(KC_LSFT)) {
+        register_code(KC_LSFT);
+      }
+      if (shift & MOD_BIT(KC_RSFT)) {
+        register_code(KC_RSFT);
+      }
+      return false;
+    }
+  }
+  return true;
+}
 
 bool muse_mode = false;
 uint8_t last_muse_note = 0;
