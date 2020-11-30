@@ -363,7 +363,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       unregister_code(KC_LSFT);
       unregister_code(KC_RSFT);
 
-      uint16_t index = keycode - C_CTR;
+      uint16_t index = keycode - ALT_FIRST;
       send_string(alt_codes[index][caps || shift]);
 
       if (caps) {
