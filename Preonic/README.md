@@ -5,7 +5,7 @@
 ## Setup:
 1. Install Vagrant and any necessary deps.
 1. Clone this repo, navigate to this directory.
-1. Clone [qmk_firmware][2] to ./qmk_firmware (my fork or upstream).
+1. Clone [qmk_firmware][2] to `./qmk_firmware` (my fork or upstream).
 1. Download flashing tool (e.g. [qmk_toolbox][3] on Windows) to this directory.
 1. `vagrant up` and `vagrant ssh` from current directory.
 1. `/vagrant/make.sh`.
