@@ -157,7 +157,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/|\/\/\/| N_Lck|  N_/ |  N_* |  N_- | Mse_R|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |\/\/\/| Mic_W|\/\/\/|\/\/\/|\/\/\/|\/\/\/|  N_7 |  N_8 |  N_9 |  N_+ | Mse_C|
+ * |      |WhlDwn| Mic_W| WhlUp|\/\/\/|\/\/\/|\/\/\/|  N_7 |  N_8 |  N_9 |  N_+ | Mse_C|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      | Mse_A| Mse_S| Mse_D|\/\/\/|\/\/\/|\/\/\/|  N_4 |  N_5 |  N_6 |  N_+ | Mse_L|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -168,7 +168,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_MISC] = LAYOUT_preonic_1x2uC(
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_NLCK, KC_PSLS, KC_PAST, KC_PMNS, KC_BTN2,
-  _______, XXXXXXX, KC_MS_U, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_P7,   KC_P8,   KC_P9,   KC_PPLS, KC_BTN3,
+  _______, KC_WH_D, KC_MS_U, KC_WH_U, XXXXXXX, XXXXXXX, XXXXXXX, KC_P7,   KC_P8,   KC_P9,   KC_PPLS, KC_BTN3,
   _______, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX, XXXXXXX, XXXXXXX, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, KC_BTN1,
   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_P1,   KC_P2,   KC_P3,   KC_PENT, _______,
   _______, _______, _______, _______, _______,      _______,     _______, KC_P0,   KC_PDOT, KC_PENT, C_MISC_LCK
