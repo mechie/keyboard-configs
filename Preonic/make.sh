@@ -9,4 +9,5 @@ output_name="$(echo $2 | tr /: _)"
 
 cd "$source_folder" &&
   make "$2" &&
+  mkdir --parents "$target_folder/bin" &&
   mv -fv "./$output_name.bin" "$target_folder/bin/$output_name.$(date +"%Y%m%d%H%M%S").bin"
